@@ -10,9 +10,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 ddf = pd.read_pickle('data.pk1')
 
-#new = ddf[1].str.split(" ", expand = True) 
-
 listStrings = list(ddf[1])
 
-vector = TfidfVectorizer()
-vector.fit(listStrings)
+vector = TfidfVectorizer(min_df=5)
+matrix=vector.fit_transform(listStrings)
+print(matrix[0])

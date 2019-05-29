@@ -1,4 +1,5 @@
 import pandas as pd 
+import pickle
 
 
 with open('id2class_eurlex_subject_matter.txt','r') as file:
@@ -21,4 +22,10 @@ labelcount=[]
 for label in labelset:
     labelcount.append([label,labellist.count(label)])
 
-print(labelcount[1])
+with open("Labelcount.txt", "w") as text_file:
+    for entry in labelcount:
+        print(f"{entry[0]} {entry[1]}", file=text_file)
+
+labelset_list=list(labelset)
+pickle.dump(labelset_list,open('labellist.pkl','wb'))
+pickle.dump(labels,open('label_doc.pkl','wb'))

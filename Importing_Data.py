@@ -5,7 +5,7 @@ import pickle
 
 
 
-file_ = codecs.open('C:/Users/marti/Documents/mter/clases/2o semestre/ATiML/project/eurlex_token.arff','r','utf8')
+file_ = codecs.open('C:/Users/Marcel Öfele/OneDrive/Dokumente/Studium/Master/2. Semester/ATiML/project/eurlex_tokenstring.arff','r','utf8')
 data = arff.load(file_)
 
 print(data.keys())

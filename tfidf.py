@@ -6,13 +6,13 @@ Created on Wed May 15 19:44:29 2019
 """
 
 import pandas as pd
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 ddf = pd.read_pickle('data.pkl')
 
-#new = ddf[1].str.split(" ", expand = True) 
-
 listStrings = list(ddf[1])
 
-vector = TfidfVectorizer()
+vector = TfidfVectorizer(min_df=5)
 matrix=vector.fit_transform(listStrings)
+print(matrix[0])

@@ -9,12 +9,16 @@ labels=[]
 for line in lines:
     labels.append(line.split()[0:2])
 
-print(labels[0])
 
 # labelsset contains only unique labels
-labelset=[]
+labellist=[]
 for label in labels:
-    labelset.append(label[0])
+    labellist.append(label[0])
 
-labelsset=set(labelset)
+labelset=set(labellist)
 
+labelcount=[]
+for label in labelset:
+    labelcount.append([label,labellist.count(label)])
+
+print(labelcount[1])

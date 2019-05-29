@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-ddf = pd.read_pickle('data.pk1')
+ddf = pd.read_pickle('data.pkl')
 
 listStrings = list(ddf[1])
 

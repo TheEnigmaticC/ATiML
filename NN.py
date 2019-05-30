@@ -1,5 +1,6 @@
-from keras import Sequential
-from keras.layers import Dense
+import tensorflow as tf
+from tensorflow.keras.layers import Dense
+from tensorflow.keras import Sequential
 import pandas
 import pickle
 

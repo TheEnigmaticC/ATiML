@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
+from sklearn.model_selection import train_test_split
 
 
 label_doc=pickle.load(open('label_doc.pkl','rb'))
@@ -22,16 +23,15 @@ label_matrix=np.zeros((19348,201))
 for entry in label_doc:
     if int(entry[1]) not in used_ids:
         used_ids.append(int(entry[1]))
-        i+1
+        i+=1
         column=labellist.index(entry[0])
         label_matrix[i,column]=1
     else:
         column=labellist.index(entry[0])
         label_matrix[i,column]=1
 
+print(i)
 
-print(labels_matrix[1,:])
-print(labellist.index('external_relations'))
 
 
 ddf = pd.read_pickle('data.pkl')

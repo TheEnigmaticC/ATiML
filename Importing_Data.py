@@ -12,4 +12,4 @@ print(data.keys())
 
 df=pd.DataFrame(data.get('data'))
 df.to_pickle('data.pk1')
-ddf = pd.read_pickle('data.pk1')
+ddf = pd.read_pickle('data.pkl')

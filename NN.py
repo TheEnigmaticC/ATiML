@@ -9,6 +9,8 @@ tf.test.is_gpu_available()
 #getting preprocessed data
 x_train=pickle.load(open('tfidf.pkl','rb'))
 y_train=pickle.load(open('y_train.pkl','rb'))
+x_test=pickle.load(open('x_test.pkl','rb'))
+y_test=pickle.load(open('y_test.pkl','rb'))
 
 print(x_train)
 
@@ -24,8 +26,13 @@ classifier.add(keras.layers.Dense(500, activation='sigmoid', kernel_initializer=
 classifier.add(keras.layers.Dense(201, activation='sigmoid', kernel_initializer='random_normal'))
 
 #Compiling the neural network
-classifier.compile(optimizer ='adam',loss='binary_crossentropy', metrics =['accuracy'])
+classifier.compile(optimizer ='adam',loss=tf.losses.sigmoid_cross_entropy, metrics=['cosine_proximity'])
 
-classifier.fit(x_train,y_train,epochs=15,batch_size=1)
+classifier.fit(x_train,y_train,epochs=3,batch_size=10)
 
-tf.test.is_gpu_available()
+
+classifier.save('classifier.h5')
+
+y_pred=classifier.predict_proba(x_test)
+print(y_pred[1])
+print(y_test[1])

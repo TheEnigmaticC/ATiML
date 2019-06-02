@@ -44,9 +44,12 @@ x_train, x_test, y_train, y_test=train_test_split(listStrings,label_matrix,test_
 
 vector = TfidfVectorizer(min_df=5)
 matrix=vector.fit_transform(x_train)
+x_test=vector.transform(x_test)
 print(np.shape(matrix))
 
 pickle.dump(matrix,open('tfidf.pkl','wb'))
 pickle.dump(vector,open('vectorizer.pkl','wb'))
 pickle.dump(y_train,open('y_train.pkl','wb'))
+pickle.dump(y_test,open('y_test.pkl','wb'))
+pickle.dump(x_test,open('x_test.pkl','wb'))
 print(matrix)
